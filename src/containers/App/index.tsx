@@ -46,6 +46,7 @@ const Description = styled.p`
   text-align: center;
   font-size: 16px;
   line-height: 1.5;
+  max-width: 576px;
 `;
 
 const FeatureSection = styled.section`
