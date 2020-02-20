@@ -6,6 +6,21 @@ export interface Theme {
     primary: string;
     textPrimary: string;
     textSecondary: string;
+    red: string;
+    cyan: string;
+    orange: string;
+    blue: string;
+    veryDarkBlue: string;
+    grayishBlue: string;
+    veryLightGray: string;
+  };
+  fontSizes: {
+    base: string;
+  };
+  fontWeight: {
+    light: 200;
+    regular: 400;
+    semiBold: 600;
   };
 }
 const {
