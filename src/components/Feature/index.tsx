@@ -47,7 +47,7 @@ const Feature: React.FC<FeatureProps> = ({
   <Card borderTopColor={borderTopColor}>
     <H1>{title}</H1>
     <Description>{description}</Description>
-    <Icon src={icon} />
+    <Icon src={icon} alt={title}/>
   </Card>
 );
 
