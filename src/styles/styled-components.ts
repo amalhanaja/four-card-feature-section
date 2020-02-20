@@ -2,10 +2,6 @@ import * as styledComponents from 'styled-components';
 
 export interface Theme {
   colors: {
-    background: string;
-    primary: string;
-    textPrimary: string;
-    textSecondary: string;
     red: string;
     cyan: string;
     orange: string;

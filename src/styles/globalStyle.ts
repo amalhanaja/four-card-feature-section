@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
     font-size: ${({ theme }): string => theme.fontSizes.base};
     -webkit-font-smoothing: antialiased;
+    background: ${({ theme }): string => theme.colors.veryLightGray};
     -moz-osx-font-smoothing: grayscale;
   }
 
