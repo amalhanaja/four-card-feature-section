@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    font-size: ${({ theme }): string => theme.fontSizes.base};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

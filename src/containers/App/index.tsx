@@ -1,72 +1,124 @@
 import * as React from 'react';
-import Logo from '../../components/Logo';
 import styled, { ThemeProvider } from '../../styles/styled-components';
 import DefaultTheme from '../../styles/themes';
 import GlobalStyle from '../../styles/globalStyle';
+import H1 from '../../components/Typography/H1';
+import Feature from '../../components/Feature';
+import IconCalculator from '../../images/icon-calculator.svg';
+import IconSupervisor from '../../images/icon-supervisor.svg';
+import IconKarma from '../../images/icon-karma.svg';
+import IconTeamBuilder from '../../images/icon-team-builder.svg';
+import media from '../../styles/media';
 
 const Wrapper = styled.div`
-  .App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 88px;
+  padding-left: 24px;
+  padding-right: 24px;
+  max-width: 375px;
+  margin: auto;
+  .attribution {
+    color: ${({ theme }): string => theme.colors.grayishBlue};
     text-align: center;
-  }
-
-  .App-logo {
-    pointer-events: none;
-    svg {
-      height: 40vmin;
+    a {
+      text-decoration: none;
+      color: ${({ theme }): string => theme.colors.veryDarkBlue};
+      font-weight: ${({ theme }): number => theme.fontWeight.semiBold};
     }
   }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
+  ${media.desktop} {
+    max-width: 960px;
+    footer {
+      position: absolute;
+      bottom: 0;
     }
   }
+`;
 
-  .App-header {
-    background-color: ${(props): string => props.theme.colors.background};
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+const Tagline1 = styled(H1)`
+  font-weight: ${({ theme }): number => theme.fontWeight.light};
+`;
+const Description = styled.p`
+  color: ${({ theme }): string => theme.colors.grayishBlue};
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+`;
+
+const FeatureSection = styled.section`
+  margin-top: 32px;
+  margin-bottom: 44px;
+  display: flex;
+  flex-direction: column;
+  ${media.desktop} {
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: ${({ theme }): string => theme.colors.textPrimary};
-  }
-
-  .App-link {
-    color: ${({ theme }): string => theme.colors.primary};
-  }
-
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
   }
 `;
 
 const App: React.FC = () => (
   <ThemeProvider theme={DefaultTheme}>
     <GlobalStyle />
-    <Wrapper className="App">
-      <header className="App-header">
-        <div className="App-logo">
-          <Logo />
-        </div>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+    <Wrapper>
+      <Tagline1>Reliable, efficient delivery</Tagline1>
+      <H1>Powered by Technology</H1>
+      <Description>
+        Our Artificial Intelligence powered tools use millions of project data
+        points to ensure that your project is successful
+      </Description>
+      <FeatureSection>
+        <Feature
+          title="Supervisor"
+          description="Monitors activity to identify project roadblocks"
+          icon={IconSupervisor}
+          borderTopColor={DefaultTheme.colors.cyan}
+        />
+        <section style={{ display: 'flex', flexDirection: 'column' }}>
+          <Feature
+            title="Team Builder"
+            description="Scans our talent network to create the optimal team for your project"
+            icon={IconTeamBuilder}
+            borderTopColor={DefaultTheme.colors.red}
+          />
+          <div />
+          <Feature
+            title="Karma"
+            description="Regularly evaluates our talent to ensure quality"
+            icon={IconKarma}
+            borderTopColor={DefaultTheme.colors.orange}
+          />
+        </section>
+        <Feature
+          title="Calculator"
+          description="Uses data from past projects to provide better delivery estimates"
+          icon={IconCalculator}
+          borderTopColor={DefaultTheme.colors.blue}
+        />
+      </FeatureSection>
+      <footer>
+        <p className="attribution">
+          Challenge by{' '}
+          <a
+            href="https://www.frontendmentor.io?ref=challenge"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Frontend Mentor
+          </a>
+          . Coded by{' '}
+          <a
+            href="https://amalcodes.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Alfian Akmal Hanantio
+          </a>
+          .
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </footer>
     </Wrapper>
   </ThemeProvider>
 );
