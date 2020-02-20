@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from '../../styles/styled-components';
 import H1 from '../Typography/H1';
+import media from '../../styles/media';
 
 type CardProps = {
   borderTopColor: string;
@@ -14,7 +15,7 @@ const Card = styled.div<CardProps>`
   display: flex;
   flex-direction: column;
   margin: 16px;
-  min-width: 320px;
+  min-width: 375px;
 `;
 
 const Icon = styled.img`
@@ -29,6 +30,16 @@ const Description = styled.p`
   font-size: 14px;
   margin-top: 4px;
   color: ${({ theme }): string => theme.colors.grayishBlue};
+  ${media.desktop} {
+    font-size: 13px;
+    line-height: 1.875;
+  }
+`;
+
+const Title = styled(H1)`
+  ${media.desktop} {
+    font-size: 24px;
+  }
 `;
 
 type FeatureProps = {
@@ -45,7 +56,7 @@ const Feature: React.FC<FeatureProps> = ({
   borderTopColor,
 }) => (
   <Card borderTopColor={borderTopColor}>
-    <H1>{title}</H1>
+    <Title>{title}</Title>
     <Description>{description}</Description>
     <Icon src={icon} alt={title}/>
   </Card>

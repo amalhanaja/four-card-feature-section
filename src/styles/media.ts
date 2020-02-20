@@ -4,7 +4,7 @@ const customMediaQuery = (minWidth: string): string => `
 
 const media = {
   custom: customMediaQuery,
-  desktop: customMediaQuery('1028px'),
+  desktop: customMediaQuery('1280px'),
 };
 
 export default media;
